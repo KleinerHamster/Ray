@@ -14,6 +14,8 @@
 		FF7C1A5D297B3C7F00570F0E /* RayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C1A5C297B3C7F00570F0E /* RayTests.swift */; };
 		FF7C1A67297B3C7F00570F0E /* RayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C1A66297B3C7F00570F0E /* RayUITests.swift */; };
 		FF7C1A69297B3C7F00570F0E /* RayUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C1A68297B3C7F00570F0E /* RayUITestsLaunchTests.swift */; };
+		FF7C1A76297BC08700570F0E /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C1A75297BC08700570F0E /* Renderer.swift */; };
+		FF7C1A78297BC7EC00570F0E /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = FF7C1A77297BC7EC00570F0E /* Shader.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 		FF7C1A62297B3C7F00570F0E /* RayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF7C1A66297B3C7F00570F0E /* RayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayUITests.swift; sourceTree = "<group>"; };
 		FF7C1A68297B3C7F00570F0E /* RayUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FF7C1A75297BC08700570F0E /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		FF7C1A77297BC7EC00570F0E /* Shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shader.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,8 @@
 				FF7C1A4E297B3C7E00570F0E /* Assets.xcassets */,
 				FF7C1A50297B3C7E00570F0E /* Main.storyboard */,
 				FF7C1A53297B3C7E00570F0E /* Ray.entitlements */,
+				FF7C1A75297BC08700570F0E /* Renderer.swift */,
+				FF7C1A77297BC7EC00570F0E /* Shader.metal */,
 			);
 			path = Ray;
 			sourceTree = "<group>";
@@ -251,7 +257,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF7C1A78297BC7EC00570F0E /* Shader.metal in Sources */,
 				FF7C1A4D297B3C7D00570F0E /* ViewController.swift in Sources */,
+				FF7C1A76297BC08700570F0E /* Renderer.swift in Sources */,
 				FF7C1A4B297B3C7D00570F0E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
