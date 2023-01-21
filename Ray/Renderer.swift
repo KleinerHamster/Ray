@@ -13,12 +13,21 @@ class Renderer: NSObject{
     let commandQueue: MTLCommandQueue
     
     let vertices: [Float] = [
-        0, 0, 0,
-        -1, -0.5, 0,
-        1, -0.5, 0]
+        -0.5,0.5,0,//v0
+         -0.5,-0.5,0,//v1
+         0.5,-0.5,0,//v2
+         0.5,0.5,0,//v3
+    ]
+    
+    var indices: [UInt16] = [
+        0,1,2,
+        2,3,0
+    ]
 
     var pipelineState:MTLRenderPipelineState?
     var vertexBuffer: MTLBuffer?
+    var indexBuffer: MTLBuffer?
+    
     
     init (device: MTLDevice) {
             self.device = device
@@ -32,6 +41,8 @@ class Renderer: NSObject{
     private func buildModel(){
             vertexBuffer=device.makeBuffer(bytes: vertices, length: vertices.count *
                                            MemoryLayout<Float>.size, options:[])
+        indexBuffer = device.makeBuffer(bytes: indices, length: indices.count *
+                                        MemoryLayout<UInt16>.size, options: [])
     }
     
     private func buildPipelineState(){
@@ -59,17 +70,28 @@ extension Renderer: MTKViewDelegate{
     func draw(in view: MTKView) {
         guard let drawable = view.currentDrawable,
               let pipelineState = pipelineState,
+              let indexBuffer = indexBuffer,
               let descriptor = view.currentRenderPassDescriptor else { return }
         let commandBuffer = commandQueue.makeCommandBuffer()
         
         let commandEncoder=commandBuffer?.makeRenderCommandEncoder(descriptor: descriptor)
         
+       
+        
         commandEncoder?.setRenderPipelineState(pipelineState)
         commandEncoder?.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
-        commandEncoder?.drawPrimitives(type: .triangle,
-                                      vertexStart: 0,
-                                      vertexCount: vertices.count)
+        
+        
+//        один треугольник
+//        commandEncoder?.drawPrimitives(type: .triangle,
+//                                      vertexStart: 0,
+//                                      vertexCount: vertices.count)
 
+        commandEncoder?.drawIndexedPrimitives(type: .triangle,
+                                              indexCount: indices.count,
+                                              indexType: .uint16,
+                                              indexBuffer: indexBuffer,
+                                              indexBufferOffset: 0)
         commandEncoder?.endEncoding()
         commandBuffer?.present(drawable)
         commandBuffer?.commit()
