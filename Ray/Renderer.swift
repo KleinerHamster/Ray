@@ -12,37 +12,16 @@ class Renderer: NSObject{
     let device: MTLDevice
     let commandQueue: MTLCommandQueue
     
-    let vertices: [Float] = [
-        -0.5,0.5,0,//v0
-         -0.5,-0.5,0,//v1
-         0.5,-0.5,0,//v2
-         0.5,0.5,0,//v3
-    ]
+    var scene: Scene?
     
-    var indices: [UInt16] = [
-        0,1,2,
-        2,3,0
-    ]
-
     var pipelineState:MTLRenderPipelineState?
-    var vertexBuffer: MTLBuffer?
-    var indexBuffer: MTLBuffer?
-    
     
     init (device: MTLDevice) {
             self.device = device
             commandQueue = device.makeCommandQueue()!
             super.init()
-            buildModel()
             buildPipelineState()
         
-    }
-    
-    private func buildModel(){
-            vertexBuffer=device.makeBuffer(bytes: vertices, length: vertices.count *
-                                           MemoryLayout<Float>.size, options:[])
-        indexBuffer = device.makeBuffer(bytes: indices, length: indices.count *
-                                        MemoryLayout<UInt16>.size, options: [])
     }
     
     private func buildPipelineState(){
@@ -53,7 +32,22 @@ class Renderer: NSObject{
         let pipelineDescriptor=MTLRenderPipelineDescriptor()
         pipelineDescriptor.vertexFunction=vertexFunction
         pipelineDescriptor.fragmentFunction=fragmentFunction
+        
         pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+        
+        let vertexDescriptor = MTLVertexDescriptor()
+        
+        vertexDescriptor.attributes[0].format = .float3
+        vertexDescriptor.attributes[0].offset = 0
+        vertexDescriptor.attributes[0].bufferIndex = 0
+        
+        vertexDescriptor.attributes[1].format = .float4
+        vertexDescriptor.attributes[1].offset = MemoryLayout<SIMD3<Float>>.stride
+        vertexDescriptor.attributes[1].bufferIndex = 0
+        
+        vertexDescriptor.layouts[0].stride =  MemoryLayout<Vertex>.stride
+        
+        pipelineDescriptor.vertexDescriptor = vertexDescriptor
         
         do{
             pipelineState = try device.makeRenderPipelineState(descriptor: pipelineDescriptor)
@@ -70,7 +64,6 @@ extension Renderer: MTKViewDelegate{
     func draw(in view: MTKView) {
         guard let drawable = view.currentDrawable,
               let pipelineState = pipelineState,
-              let indexBuffer = indexBuffer,
               let descriptor = view.currentRenderPassDescriptor else { return }
         let commandBuffer = commandQueue.makeCommandBuffer()
         
@@ -79,19 +72,17 @@ extension Renderer: MTKViewDelegate{
        
         
         commandEncoder?.setRenderPipelineState(pipelineState)
-        commandEncoder?.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
-        
         
 //        один треугольник
 //        commandEncoder?.drawPrimitives(type: .triangle,
 //                                      vertexStart: 0,
 //                                      vertexCount: vertices.count)
+        
+        let deltaTime = 1 / Float(view.preferredFramesPerSecond)
+        scene?.render(commandEncoder: commandEncoder!,
+                      deltaTime: deltaTime)
 
-        commandEncoder?.drawIndexedPrimitives(type: .triangle,
-                                              indexCount: indices.count,
-                                              indexType: .uint16,
-                                              indexBuffer: indexBuffer,
-                                              indexBufferOffset: 0)
+        
         commandEncoder?.endEncoding()
         commandBuffer?.present(drawable)
         commandBuffer?.commit()
