@@ -7,7 +7,7 @@
 
 import simd
 
-let π = Float(M_PI)
+let π = Float(Double.pi)
 
 func radians(fromDegrees degrees: Float) -> Float {
   return (degrees / 180) * π
@@ -30,10 +30,10 @@ extension matrix_float4x4 {
   init(translationX x: Float, y: Float, z: Float) {
       self.init()
       columns = (
-      float4( 1,  0,  0,  0),
-      float4( 0,  1,  0,  0),
-      float4( 0,  0,  1,  0),
-      float4( x,  y,  z,  1)
+      SIMD4<Float>( 1,  0,  0,  0),
+      SIMD4<Float>( 0,  1,  0,  0),
+      SIMD4<Float>( 0,  0,  1,  0),
+      SIMD4<Float>( x,  y,  z,  1)
     )
   }
   
@@ -45,10 +45,10 @@ extension matrix_float4x4 {
   init(scaleX x: Float, y: Float, z: Float) {
       self.init()
       columns = (
-      float4( x,  0,  0,  0),
-      float4( 0,  y,  0,  0),
-      float4( 0,  0,  z,  0),
-      float4( 0,  0,  0,  1)
+      SIMD4<Float>( x,  0,  0,  0),
+      SIMD4<Float>( 0,  y,  0,  0),
+      SIMD4<Float>( 0,  0,  z,  0),
+      SIMD4<Float>( 0,  0,  0,  1)
     )
   }
   
@@ -62,25 +62,25 @@ extension matrix_float4x4 {
     let c = cos(angle)
     let s = sin(angle)
 
-    var column0 = float4(0)
+      var column0 = SIMD4<Float>(repeating: 0)
     column0.x = x * x + (1 - x * x) * c
     column0.y = x * y * (1 - c) - z * s
     column0.z = x * z * (1 - c) + y * s
     column0.w = 0
     
-    var column1 = float4(0)
+      var column1 = SIMD4<Float>(repeating: 0)
     column1.x = x * y * (1 - c) + z * s
     column1.y = y * y + (1 - y * y) * c
     column1.z = y * z * (1 - c) - x * s
     column1.w = 0.0
     
-    var column2 = float4(0)
+    var column2 = SIMD4<Float>(repeating: 0)
     column2.x = x * z * (1 - c) - y * s
     column2.y = y * z * (1 - c) + x * s
     column2.z = z * z + (1 - z * z) * c
     column2.w = 0.0
     
-    let column3 = float4(0, 0, 0, 1)
+    let column3 = SIMD4<Float>(0, 0, 0, 1)
     
       self.init()
       columns = (
@@ -101,18 +101,18 @@ extension matrix_float4x4 {
     let z = farZ / (nearZ - farZ)
       self.init()
       columns = (
-      float4( x,  0,  0,  0),
-      float4( 0,  y,  0,  0),
-      float4( 0,  0,  z, -1),
-      float4( 0,  0,  z * nearZ,  0)
+        SIMD4<Float>( x,  0,  0,  0),
+        SIMD4<Float>( 0,  y,  0,  0),
+        SIMD4<Float>( 0,  0,  z, -1),
+        SIMD4<Float>( 0,  0,  z * nearZ,  0)
     )
   }
   
   func upperLeft3x3() -> matrix_float3x3 {
     return (matrix_float3x3(columns: (
-      float3(columns.0.x, columns.0.y, columns.0.z),
-      float3(columns.1.x, columns.1.y, columns.1.z),
-      float3(columns.2.x, columns.2.y, columns.2.z)
+        SIMD3<Float>(columns.0.x, columns.0.y, columns.0.z),
+        SIMD3<Float>(columns.1.x, columns.1.y, columns.1.z),
+        SIMD3<Float>(columns.2.x, columns.2.y, columns.2.z)
     )))
   }
 }
@@ -141,7 +141,7 @@ extension matrix_float4x4: CustomReflectable {
     let c33 = String(format: "%  .4f", columns.3.w)
     
     
-    let children = DictionaryLiteral<String, Any>(dictionaryLiteral:
+    let children = KeyValuePairs<String, Any>(dictionaryLiteral:
       (" ", "\(c00) \(c01) \(c02) \(c03)"),
       (" ", "\(c10) \(c11) \(c12) \(c13)"),
       (" ", "\(c20) \(c21) \(c22) \(c23)"),
@@ -151,7 +151,7 @@ extension matrix_float4x4: CustomReflectable {
   }
 }
 
-extension float4: CustomReflectable {
+extension SIMD4<Float>: CustomReflectable {
   
   public var customMirror: Mirror {
     let sx = String(format: "%  .4f", x)
@@ -159,9 +159,9 @@ extension float4: CustomReflectable {
     let sz = String(format: "%  .4f", z)
     let sw = String(format: "%  .4f", w)
     
-    let children = DictionaryLiteral<String, Any>(dictionaryLiteral:
+    let children = KeyValuePairs<String, Any>(dictionaryLiteral:
       (" ", "\(sx) \(sy) \(sz) \(sw)")
     )
-    return Mirror(float4.self, children: children)
+    return Mirror(SIMD4<Float>.self, children: children)
   }
 }

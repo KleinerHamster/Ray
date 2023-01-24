@@ -11,31 +11,31 @@ class Cube: Primitive {
 
   override func buildVertices() {
     vertices = [
-      Vertex(position: float3(-1, 1, 1),   // 0 Front
-             color:    float4(1, 0, 0, 1),
-             texture:  float2(0, 0)),
-      Vertex(position: float3(-1, -1, 1),  // 1
-             color:    float4(0, 1, 0, 1),
-             texture:  float2(0, 1)),
-      Vertex(position: float3(1, -1, 1),   // 2
-             color:    float4(0, 0, 1, 1),
-             texture:  float2(1, 1)),
-      Vertex(position: float3(1, 1, 1),    // 3
-             color:    float4(1, 0, 1, 1),
-             texture:  float2(1, 0)),
+        Vertex(position:  SIMD3<Float>(-0.5, 0.5, 0.5),   // 0 Front
+             color:     SIMD4<Float>(1, 0, 0, 1),
+             texture:   SIMD2<Float>(0, 0)),
+      Vertex(position:  SIMD3<Float>(-0.5, -0.5, 0.5),  // 1
+             color:    SIMD4<Float>(0, 1, 0, 1),
+             texture:  SIMD2<Float>(0, 1)),
+        Vertex(position: SIMD3<Float>(0.5, -0.5, 0.5),   // 2
+             color:    SIMD4<Float>(0, 0, 1, 1),
+             texture:  SIMD2<Float>(1, 1)),
+      Vertex(position: SIMD3<Float>(0.5, 0.5, 0.5),    // 3
+             color:    SIMD4<Float>(1, 0, 1, 1),
+             texture:  SIMD2<Float>(1, 0)),
       
-      Vertex(position: float3(-1, 1, -1),  // 4 Back
-             color:    float4(0, 0, 1, 1),
-             texture:  float2(1, 1)),
-      Vertex(position: float3(-1, -1, -1), // 5
-             color:    float4(0, 1, 0, 1),
-             texture:  float2(0, 1)),
-      Vertex(position: float3(1, -1, -1),  // 6
-             color:    float4(1, 0, 0, 1),
-             texture:  float2(0, 0)),
-      Vertex(position: float3(1, 1, -1),   // 7
-             color:    float4(1, 0, 1, 1),
-             texture:  float2(1, 0)),
+      Vertex(position: SIMD3<Float>(-0.5, 0.5, -0.5),  // 4 Back
+             color:    SIMD4<Float>(0, 0, 1, 1),
+             texture:  SIMD2<Float>(1, 1)),
+      Vertex(position: SIMD3<Float>(-0.5, -0.5, -0.5), // 5
+             color:    SIMD4<Float>(0, 1, 0, 1),
+             texture:  SIMD2<Float>(0, 1)),
+      Vertex(position: SIMD3<Float>(0.5, -0.5, -0.5),  // 6
+             color:    SIMD4<Float>(1, 0, 0, 1),
+             texture:  SIMD2<Float>(0, 0)),
+      Vertex(position: SIMD3<Float>(0.5, 0.5, -0.5),   // 7
+             color:    SIMD4<Float>(1, 0, 1, 1),
+             texture:  SIMD2<Float>(1, 0)),
     ]
     
     indices = [

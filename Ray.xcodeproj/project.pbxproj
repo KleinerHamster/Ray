@@ -23,10 +23,10 @@
 		FF7C1A84297DAC6300570F0E /* GameSecene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C1A83297DAC6300570F0E /* GameSecene.swift */; };
 		FF7C1A8C297EA3F600570F0E /* Texturable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C1A8B297EA3F600570F0E /* Texturable.swift */; };
 		FF7C1A8E297EB25B00570F0E /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C1A8D297EB25B00570F0E /* Renderable.swift */; };
-		FF7C1A94297EBBB600570F0E /* picture.png in Resources */ = {isa = PBXBuildFile; fileRef = FF7C1A93297EBBB600570F0E /* picture.png */; };
 		FF7C1A962980033B00570F0E /* MatrixMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C1A952980033B00570F0E /* MatrixMath.swift */; };
 		FF7C1A9A29800E5300570F0E /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C1A9929800E5200570F0E /* Cube.swift */; };
 		FF7C1A9C2980170D00570F0E /* Primitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C1A9B2980170D00570F0E /* Primitive.swift */; };
+		FF7C1B2329805F1B00570F0E /* picture.png in Resources */ = {isa = PBXBuildFile; fileRef = FF7C1B2229805F1B00570F0E /* picture.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,10 +67,10 @@
 		FF7C1A83297DAC6300570F0E /* GameSecene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSecene.swift; sourceTree = "<group>"; };
 		FF7C1A8B297EA3F600570F0E /* Texturable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texturable.swift; sourceTree = "<group>"; };
 		FF7C1A8D297EB25B00570F0E /* Renderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderable.swift; sourceTree = "<group>"; };
-		FF7C1A93297EBBB600570F0E /* picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picture.png; sourceTree = "<group>"; };
 		FF7C1A952980033B00570F0E /* MatrixMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixMath.swift; sourceTree = "<group>"; };
 		FF7C1A9929800E5200570F0E /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
 		FF7C1A9B2980170D00570F0E /* Primitive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Primitive.swift; path = ../Primitive.swift; sourceTree = "<group>"; };
+		FF7C1B2229805F1B00570F0E /* picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = picture.png; path = ../../../../Downloads/picture.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,7 +179,7 @@
 		FF7C1A86297EA32B00570F0E /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				FF7C1A93297EBBB600570F0E /* picture.png */,
+				FF7C1B2229805F1B00570F0E /* picture.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -290,7 +290,7 @@
 			files = (
 				FF7C1A4F297B3C7E00570F0E /* Assets.xcassets in Resources */,
 				FF7C1A52297B3C7E00570F0E /* Main.storyboard in Resources */,
-				FF7C1A94297EBBB600570F0E /* picture.png in Resources */,
+				FF7C1B2329805F1B00570F0E /* picture.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,9 +11,9 @@ class Node {
   var name = "Untitled"
   var children: [Node] = []
   
-  var position = float3(0)
-  var rotation = float3(0)
-  var scale = float3(1)
+    var position = SIMD3<Float>(repeating: 0)
+    var rotation = SIMD3<Float>(repeating: 0)
+    var scale = SIMD3<Float>(repeating: 1)
   
   var modelMatrix: matrix_float4x4 {
     var matrix = matrix_float4x4(translationX: position.x,
