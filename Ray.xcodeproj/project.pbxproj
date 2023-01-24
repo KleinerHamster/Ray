@@ -24,6 +24,9 @@
 		FF7C1A8C297EA3F600570F0E /* Texturable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C1A8B297EA3F600570F0E /* Texturable.swift */; };
 		FF7C1A8E297EB25B00570F0E /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C1A8D297EB25B00570F0E /* Renderable.swift */; };
 		FF7C1A94297EBBB600570F0E /* picture.png in Resources */ = {isa = PBXBuildFile; fileRef = FF7C1A93297EBBB600570F0E /* picture.png */; };
+		FF7C1A962980033B00570F0E /* MatrixMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C1A952980033B00570F0E /* MatrixMath.swift */; };
+		FF7C1A9A29800E5300570F0E /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C1A9929800E5200570F0E /* Cube.swift */; };
+		FF7C1A9C2980170D00570F0E /* Primitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C1A9B2980170D00570F0E /* Primitive.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,9 @@
 		FF7C1A8B297EA3F600570F0E /* Texturable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texturable.swift; sourceTree = "<group>"; };
 		FF7C1A8D297EB25B00570F0E /* Renderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderable.swift; sourceTree = "<group>"; };
 		FF7C1A93297EBBB600570F0E /* picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picture.png; sourceTree = "<group>"; };
+		FF7C1A952980033B00570F0E /* MatrixMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixMath.swift; sourceTree = "<group>"; };
+		FF7C1A9929800E5200570F0E /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
+		FF7C1A9B2980170D00570F0E /* Primitive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Primitive.swift; path = ../Primitive.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,7 @@
 				FF7C1A80297DAC1A00570F0E /* Scenes */,
 				FF7C1A7B297BF04100570F0E /* Nodes */,
 				FF7C1A4A297B3C7D00570F0E /* AppDelegate.swift */,
+				FF7C1A952980033B00570F0E /* MatrixMath.swift */,
 				FF7C1A4C297B3C7D00570F0E /* ViewController.swift */,
 				FF7C1A4E297B3C7E00570F0E /* Assets.xcassets */,
 				FF7C1A50297B3C7E00570F0E /* Main.storyboard */,
@@ -152,8 +159,10 @@
 			children = (
 				FF7C1A7C297BF05600570F0E /* Plane.swift */,
 				FF7C1A7E297BF0B400570F0E /* Node.swift */,
+				FF7C1A9B2980170D00570F0E /* Primitive.swift */,
 				FF7C1A8B297EA3F600570F0E /* Texturable.swift */,
 				FF7C1A8D297EB25B00570F0E /* Renderable.swift */,
+				FF7C1A9929800E5200570F0E /* Cube.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -309,13 +318,16 @@
 				FF7C1A78297BC7EC00570F0E /* Shader.metal in Sources */,
 				FF7C1A4D297B3C7D00570F0E /* ViewController.swift in Sources */,
 				FF7C1A76297BC08700570F0E /* Renderer.swift in Sources */,
+				FF7C1A9C2980170D00570F0E /* Primitive.swift in Sources */,
 				FF7C1A7A297BEFC000570F0E /* Types.swift in Sources */,
 				FF7C1A82297DAC4900570F0E /* Scene.swift in Sources */,
 				FF7C1A8E297EB25B00570F0E /* Renderable.swift in Sources */,
+				FF7C1A962980033B00570F0E /* MatrixMath.swift in Sources */,
 				FF7C1A7D297BF05600570F0E /* Plane.swift in Sources */,
 				FF7C1A4B297B3C7D00570F0E /* AppDelegate.swift in Sources */,
 				FF7C1A84297DAC6300570F0E /* GameSecene.swift in Sources */,
 				FF7C1A7F297BF0B400570F0E /* Node.swift in Sources */,
+				FF7C1A9A29800E5300570F0E /* Cube.swift in Sources */,
 				FF7C1A8C297EA3F600570F0E /* Texturable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,11 @@
 import simd
 
 struct Vertex {
-  var position: SIMD3<Float>
-  var color: SIMD4<Float>
-  var texture: SIMD2<Float>
+  var position: float3
+  var color: float4
+  var texture: float2
+}
+
+struct ModelConstants {
+  var modelViewMatrix = matrix_identity_float4x4
 }

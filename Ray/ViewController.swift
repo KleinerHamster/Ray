@@ -13,6 +13,7 @@ enum Colors{
                                                green: 0.76,
                                                blue: 0.8,
                                                alpha: 1.0)
+
 }
  
 class ViewController: NSViewController {
@@ -30,10 +31,11 @@ class ViewController: NSViewController {
         fatalError("Device not created. Run on a physical device")
       }
       
-        metalView.clearColor =  Colors.wenderlichGreen
-        renderer = Renderer(device: device)
-        renderer?.scene = GameScene(device: device, size: view.bounds.size)
-        metalView.delegate = renderer
+      metalView.clearColor =  Colors.wenderlichGreen
+      metalView.depthStencilPixelFormat = .depth32Float
+      renderer = Renderer(device: device)
+      renderer?.scene = GameScene(device: device, size: view.bounds.size)
+      metalView.delegate = renderer
     }
 }
 
