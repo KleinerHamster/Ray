@@ -8,25 +8,18 @@
 import MetalKit
 
 class GameScene: Scene {
-
-  //var quad: Plane
-  var cube: Cube
-
-  override init(device: MTLDevice, size: CGSize) {
-    cube = Cube(device: device)
-//    quad = Plane(device: device,
-//                 imageName: "picture.png")
     
-    super.init(device: device, size: size)
-    add(childNode: cube)
-//    add(childNode: quad)
-//
-//    quad.position.z = -3
-//      quad.scale = SIMD3<Float>(repeating: 3)
-  }
-  
-  override func update(deltaTime: Float) {
-    cube.rotation.y += deltaTime
-  }
-  
+    let model: Model
+    
+    override init(device: MTLDevice, size: CGSize) {
+        
+        model = Model(device: device, modelName: "1234_aparat_stereo_glass")
+        
+        super.init(device: device, size: size)
+        add(childNode: model)
+      
+        model.rotation.x -= 0.45
+        model.rotation.y -= 0.367
+        model.rotation.z -= 0.08
+    }
 }

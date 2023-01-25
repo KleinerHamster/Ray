@@ -13,6 +13,7 @@ enum Colors{
                                                green: 0.76,
                                                blue: 0.8,
                                                alpha: 1.0)
+    static let beige = MTLClearColor(red: 0.82, green: 0.69, blue: 0.52, alpha: 1)
 
 }
  

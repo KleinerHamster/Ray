@@ -27,6 +27,11 @@
 		FF7C1A9A29800E5300570F0E /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C1A9929800E5200570F0E /* Cube.swift */; };
 		FF7C1A9C2980170D00570F0E /* Primitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C1A9B2980170D00570F0E /* Primitive.swift */; };
 		FF7C1B2329805F1B00570F0E /* picture.png in Resources */ = {isa = PBXBuildFile; fileRef = FF7C1B2229805F1B00570F0E /* picture.png */; };
+		FF7C1B25298104A200570F0E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C1B24298104A200570F0E /* Model.swift */; };
+		FF7C1B2B29810E1900570F0E /* 1234_aparat_stereo_glass.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FF7C1B2929810E1900570F0E /* 1234_aparat_stereo_glass.jpg */; };
+		FF7C1B2C29810E1900570F0E /* 1234_aparat_stereo_glass.obj in Resources */ = {isa = PBXBuildFile; fileRef = FF7C1B2A29810E1900570F0E /* 1234_aparat_stereo_glass.obj */; };
+		FF7C1B2E2981112200570F0E /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C1B2D2981112200570F0E /* Camera.swift */; };
+		FF7C1B30298116D500570F0E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C1B2F298116D500570F0E /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +76,11 @@
 		FF7C1A9929800E5200570F0E /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
 		FF7C1A9B2980170D00570F0E /* Primitive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Primitive.swift; path = ../Primitive.swift; sourceTree = "<group>"; };
 		FF7C1B2229805F1B00570F0E /* picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = picture.png; path = ../../../../Downloads/picture.png; sourceTree = "<group>"; };
+		FF7C1B24298104A200570F0E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		FF7C1B2929810E1900570F0E /* 1234_aparat_stereo_glass.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1234_aparat_stereo_glass.jpg; sourceTree = "<group>"; };
+		FF7C1B2A29810E1900570F0E /* 1234_aparat_stereo_glass.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1234_aparat_stereo_glass.obj; sourceTree = "<group>"; };
+		FF7C1B2D2981112200570F0E /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		FF7C1B2F298116D500570F0E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +131,7 @@
 		FF7C1A49297B3C7D00570F0E /* Ray */ = {
 			isa = PBXGroup;
 			children = (
+				FF7C1B2829810E0700570F0E /* Models */,
 				FF7C1A86297EA32B00570F0E /* Images */,
 				FF7C1A80297DAC1A00570F0E /* Scenes */,
 				FF7C1A7B297BF04100570F0E /* Nodes */,
@@ -133,6 +144,9 @@
 				FF7C1A75297BC08700570F0E /* Renderer.swift */,
 				FF7C1A77297BC7EC00570F0E /* Shader.metal */,
 				FF7C1A79297BEFC000570F0E /* Types.swift */,
+				FF7C1B24298104A200570F0E /* Model.swift */,
+				FF7C1B2D2981112200570F0E /* Camera.swift */,
+				FF7C1B2F298116D500570F0E /* Constants.swift */,
 			);
 			path = Ray;
 			sourceTree = "<group>";
@@ -182,6 +196,15 @@
 				FF7C1B2229805F1B00570F0E /* picture.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		FF7C1B2829810E0700570F0E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FF7C1B2929810E1900570F0E /* 1234_aparat_stereo_glass.jpg */,
+				FF7C1B2A29810E1900570F0E /* 1234_aparat_stereo_glass.obj */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,7 +313,9 @@
 			files = (
 				FF7C1A4F297B3C7E00570F0E /* Assets.xcassets in Resources */,
 				FF7C1A52297B3C7E00570F0E /* Main.storyboard in Resources */,
+				FF7C1B2C29810E1900570F0E /* 1234_aparat_stereo_glass.obj in Resources */,
 				FF7C1B2329805F1B00570F0E /* picture.png in Resources */,
+				FF7C1B2B29810E1900570F0E /* 1234_aparat_stereo_glass.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +340,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF7C1B2E2981112200570F0E /* Camera.swift in Sources */,
+				FF7C1B30298116D500570F0E /* Constants.swift in Sources */,
+				FF7C1B25298104A200570F0E /* Model.swift in Sources */,
 				FF7C1A78297BC7EC00570F0E /* Shader.metal in Sources */,
 				FF7C1A4D297B3C7D00570F0E /* ViewController.swift in Sources */,
 				FF7C1A76297BC08700570F0E /* Renderer.swift in Sources */,
